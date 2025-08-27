@@ -1,0 +1,16 @@
+{
+  "name": "project-backend",
+  "version": "1.0.0",
+  "description": "backend with hatiesh ch",
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "license": "ISC",
+  "author": "Waji-mir",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
