@@ -1,7 +1,7 @@
 import mongoose, {  Schema } from "mongoose";
 
 import jwt from "jsonwebtoken"
-import bcrypt from "bcrpyt"
+import bcrypt from "bcrypt"
 
 
 const UserShema = new Schema({

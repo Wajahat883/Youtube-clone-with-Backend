@@ -1,19 +1,16 @@
 import multer from "multer";
 
+// Storage engine define kiya
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./Public/Temp")
+    // Jis folder me file save hogi
+    cb(null, "./Public/Temp");
   },
   filename: function (req, file, cb) {
-   
-    cb(null, file.originalname)
+    // File ka naam decide karna
+    cb(null, file.originalname); 
   }
-})
+});
 
- export const upload = multer(
-    { 
-        storage,
-
-     }
-)
-
+// Upload middleware export kar diya
+export const upload = multer({ storage });

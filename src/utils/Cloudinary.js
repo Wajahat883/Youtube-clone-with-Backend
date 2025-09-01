@@ -5,7 +5,7 @@ import fs from "fs"
       
  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
         api_key: process.env.Cloudinary_Api_Key, 
-        api_secret:process.env.Cloudinary_Api-Secret
+        api_secret:process.env.Cloudinary_Api_Secret
     });
 
     const uploadonCloudinary = async (localFieldpath)=>{
