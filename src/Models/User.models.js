@@ -1,4 +1,4 @@
-import mongoose, {  Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
@@ -55,7 +55,7 @@ UserShema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
 
 
-    this.password =await bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 
 })
@@ -88,7 +88,7 @@ UserShema.methods.genrateRefreshToken = function () {
         },
 
         process.env.REFRESH_TOKEN_SECRET,
-         
+
         {
             expiresIn: REFRESH_TOKEN_EXPIRY
         }
