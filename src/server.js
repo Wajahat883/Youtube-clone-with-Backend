@@ -8,6 +8,7 @@ dotenv.config({
     path: '../env'
 })
 
+
 connectDB()
 
     .then(() => {
