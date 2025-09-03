@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     // File ka naam decide karna
-    cb(null, file.originalname); 
+    cb(null, file.originalname);
   }
 });
 
