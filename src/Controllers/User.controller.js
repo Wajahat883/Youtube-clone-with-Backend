@@ -212,8 +212,52 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, user, "Account updated successfully"))
 })
 
+const updateUserAvatar = asyncHandler(async (req, res) => {
+    const avatarLocalpath = req.file?.path
+    if (!avatarLocalpath) {
+        throw new ApiError(400, "Avatar file is missing")
+    }
+    const avatar = await uploadonCloudinary(avatarLocalpath)
+    if (!avatar.url) {
+        throw new ApiError(400, "Error while uploading on avatar")
+    }
+    const user = await User.findByIdAndUpdate(
+        req.user?.__id,
+        {
+            $set: {
+                avatar: avatar.url
+
+            }
+        },
+        { new: true }
+    ).select("-password")
+    return res.status(200).json(new ApiResponse(200, user, "avatar image upload successfully!"))
+})
+const updateUsercoverImage = asyncHandler(async (req, res) => {
+    const coverImageLocalpath = req.file?.path
+    if (!coverImageLocalpath) {
+        throw new ApiError(400, "coverImage file is missing")
+    }
+    const coverImage = await uploadonCloudinary(avatarLocalpath)
+    if (!coverImage.url) {
+        throw new ApiError(400, "Error while uploading on avatar")
+    }
+    const user = await User.findByIdAndUpdate(
+        req.user?.__id,
+        {
+            $set: {
+                avatar: avatar.url
+
+            }
+        },
+        { new: true }
+    )
+    return res.status(200).json(new ApiResponse(200, user, "avatar image upload successfully!"))
+})
+
 export {
     registerUser, loginUser, logOutuser,
-    refrehAccessToken, changeCurrentPassword, getCurrentUser, updateAccountDetails
-
+    refrehAccessToken, changeCurrentPassword,
+    getCurrentUser, updateAccountDetails,
+    updateUsercoverImage, updateUserAvatar
 };
