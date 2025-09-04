@@ -15,7 +15,8 @@ app.use(express.json({
 }))
 app.use(express.urlencoded({
     extented: true,
-    limit: "20kb"
+    limit: "20kb",
+    extended:true
 }))
 app.use(express.static("public"))
 
